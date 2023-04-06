@@ -22,6 +22,7 @@ struct TaskListView: View {
                 VStack{
                     VStack{
                         HStack{
+                            //Add task btn
                             Button(action: {
                                 if(titleText != "" && descriptionText != ""){
                                     taskStore.addTask(task: .init(title: titleText, description: descriptionText, isCompleted: false))

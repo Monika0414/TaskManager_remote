@@ -96,6 +96,7 @@ struct TaskListView: View {
                                 
                             }).foregroundColor(.indigo)
                             
+                            // checkmark
                             Button(action: {
                                 withAnimation{
                                     taskStore.toggleIsCompleted(task: task)
@@ -134,7 +135,7 @@ class Task: Identifiable, Hashable{
         hasher.combine(id)
         hasher.combine(isCompleted)
     }
-    var isCompleted:Bool
+ @Published var isCompleted:Bool
     var id = UUID().uuidString
     var title:String
     var description:String

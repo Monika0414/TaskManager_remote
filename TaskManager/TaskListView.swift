@@ -9,7 +9,6 @@ import SwiftUI
 
 struct TaskListView: View {
     @StateObject var taskStore = TaskStore(tasks: [])
-    
     @State var EditTitleText = ""
     @State var EditDescriptionText = ""
     @State var titleText = ""
@@ -79,20 +78,7 @@ struct TaskListView: View {
                             
                             Text("\(task.description)").lineLimit(0)
                             NavigationLink("View details", destination: {
-                                ZStack{
-                                    Color("LightPink")
-                                    VStack(alignment: .center, spacing:10){
-                                        Text("Details about the task")
-                                            .font(.largeTitle)
-                                            .foregroundColor(.black)
-                                            .lineLimit(.none)
-                                        Text("\(task.description)")
-                                            .font(.largeTitle)
-                                            .foregroundColor(.gray)
-                                            .lineLimit(.none)
-                                            .padding()
-                                    }
-                                }.ignoresSafeArea()
+                                TaskDetailView(task: task)
                                 
                             }).foregroundColor(.indigo)
                             

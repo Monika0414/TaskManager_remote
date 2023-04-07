@@ -15,7 +15,9 @@ struct EditTaskView:View{
     var body: some View{
         VStack{
             TextField("Title", text: $editTitleText)
+                .frame(width: 200, height: 50).background(.white)
             TextField("Description", text: $editDescriptionText)
+                .frame(width: 200, height: 50).background(.white)
         }
     }
 }

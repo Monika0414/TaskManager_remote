@@ -55,10 +55,7 @@ struct TaskListView: View {
                                         Color("LightBeige")
                                         VStack{
                                             
-                                            TextField("Enter new title", text: $EditTitleText)
-                                                .frame(width: 200, height: 50).background(.white)
-                                            TextField("Enter new description", text: $EditDescriptionText)
-                                                .frame(width: 200, height: 50).background(.white)
+                                           EditTaskView(editTitleText: EditTitleText, editDescriptionText: EditDescriptionText)
                                             Button(action: {
                                                 task.title = EditTitleText
                                                 task.description = EditDescriptionText

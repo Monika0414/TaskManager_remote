@@ -9,8 +9,8 @@ import SwiftUI
 
 //Edit task view
 struct EditTaskView:View{
-    @State var editTitleText:String
-    @State var editDescriptionText:String
+    @State var editTitleText:String = ""
+    @State var editDescriptionText:String = ""
     
     var body: some View{
         VStack{

@@ -40,7 +40,7 @@ struct TaskListView: View {
                     }
                     
                     //Iterating
-                    ForEach(taskStore.tasks, id:\.self){ task in
+                    ForEach(taskStore.tasks){ task in
                         VStack(alignment: .leading, spacing: 4){
                             HStack{
                                 Spacer()
@@ -55,7 +55,10 @@ struct TaskListView: View {
                                         Color("LightBeige")
                                         VStack{
                                             
-                                           EditTaskView(editTitleText: EditTitleText, editDescriptionText: EditDescriptionText)
+                                            TextField("Title", text: $EditTitleText)
+                                                .frame(width: 200, height: 50).background(.white)
+                                            TextField("Description", text: $EditDescriptionText)
+                                                .frame(width: 200, height: 50).background(.white)
                                             Button(action: {
                                                 task.title = EditTitleText
                                                 task.description = EditDescriptionText
@@ -96,6 +99,7 @@ struct TaskListView: View {
                             .cornerRadius(20))
                     }
                 }.padding()
+                   // .environmentObject(taskStore)
             }
         }
     }
@@ -104,6 +108,7 @@ struct TaskListView: View {
 struct TaskListView_Previews: PreviewProvider {
     static var previews: some View {
         TaskListView()
+           // .environmentObject(TaskStore(tasks: []))
     }
 }
 

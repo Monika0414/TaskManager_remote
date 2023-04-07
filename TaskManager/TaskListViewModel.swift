@@ -7,7 +7,7 @@
 
 import SwiftUI
 // Instance of a task
-class Task: Identifiable, Hashable{
+final class Task: Identifiable, Hashable{
     static func == (lhs: Task, rhs: Task) -> Bool {
         return lhs.id == rhs.id && lhs.title == rhs.title && lhs.description == rhs.description && lhs.isCompleted == rhs.isCompleted
     }
@@ -30,7 +30,7 @@ class Task: Identifiable, Hashable{
     }
 }
 
-class TaskStore:ObservableObject{
+final class TaskStore:ObservableObject{
     @Published var tasks:[Task]
     
     func addTask(task:Task){

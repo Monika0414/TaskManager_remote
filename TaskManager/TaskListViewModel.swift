@@ -8,6 +8,13 @@
 import SwiftUI
 // Instance of a task
 final class Task: Identifiable, Hashable{
+    @Published var isCompleted:Bool
+    
+       var id = UUID().uuidString
+       var title:String
+       var description:String
+    
+    
     static func == (lhs: Task, rhs: Task) -> Bool {
         return lhs.id == rhs.id && lhs.title == rhs.title && lhs.description == rhs.description && lhs.isCompleted == rhs.isCompleted
     }
@@ -17,10 +24,7 @@ final class Task: Identifiable, Hashable{
         hasher.combine(id)
         hasher.combine(isCompleted)
     }
- @Published var isCompleted:Bool
-    var id = UUID().uuidString
-    var title:String
-    var description:String
+ 
     
     
     init( title: String, description: String, isCompleted: Bool) {
